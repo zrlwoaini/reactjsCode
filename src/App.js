@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './App.css'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -12,12 +10,9 @@ import Paper from 'material-ui/Paper';
 import Search from './components/Search'
 import Result from './components/Result'
 import $ from 'jquery'
+import {GridList, GridTile} from 'material-ui/GridList';
 
 import {lightBlue100, lightBlue500, lightBlue700} from 'material-ui/styles/colors';
- 
-const paperStyle = {
-  margin: '20px auto',
-};
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -58,10 +53,30 @@ class App extends Component {
               title="曾瑞略的样例工程"
               showMenuIconButton={false}
             />
-            <Paper style={paperStyle} zDepth={5}>
-              <Search handleInput={this.handleInput.bind(this)}/>
-              <Result weatherInfo={this.state.weatherInfo}/>
-            </Paper>
+            <GridList
+                cols={3}
+                cellHeight={500}
+                style={{overflowY:'auto',margin:'0px'}}
+                >
+                <GridTile cols={1}>
+                    <Paper zDepth={3}>
+                      <Search handleInput={this.handleInput.bind(this)}/>
+                      <Result weatherInfo={this.state.weatherInfo}/>
+                    </Paper>
+                </GridTile>
+                <GridTile cols={1}>
+                    <Paper zDepth={3}>
+                      <Search handleInput={this.handleInput.bind(this)}/>
+                      <Result weatherInfo={this.state.weatherInfo}/>
+                    </Paper>
+                </GridTile>
+                <GridTile cols={1}>
+                    <Paper zDepth={3}>
+                      <Search handleInput={this.handleInput.bind(this)}/>
+                      <Result weatherInfo={this.state.weatherInfo}/>
+                    </Paper>
+                </GridTile>
+            </GridList>
           </div>
         </MuiThemeProvider>
     );

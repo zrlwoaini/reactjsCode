@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import {GridList, GridTile} from 'material-ui/GridList';
+import Button from 'react-bootstrap/lib/Button'
 
 const style = {
   margin: 12,
@@ -31,11 +32,11 @@ class Search extends Component {
         return (
             <div>
                <GridList
-                cols={3}
+                cols={5}
                 cellHeight={80}
                 style={styles.gridList}
                 >
-                    <GridTile cols={2}>
+                    <GridTile cols={3}>
                         <TextField
                             style={{paddingLeft:'20px'}}
                             ref="city_name"
@@ -44,7 +45,7 @@ class Search extends Component {
                             onKeyPress={e=>e.key==='Enter'?this.props.handleInput(e.target.value):null}
                         />
                     </GridTile>
-                    <GridTile cols={1}>
+                    <GridTile cols={2}>
                         <RaisedButton label="查询" primary={true} style={style} onClick={this.queryClick.bind(this)} />
                     </GridTile>
                 </GridList>
