@@ -23,7 +23,10 @@ const muiTheme = getMuiTheme({
 }, {
   avatar: {
     borderColor: null,
-  }
+  },
+  appBar: {
+    height: 50,
+  },
 });
 
 class App extends Component {
@@ -45,6 +48,18 @@ class App extends Component {
     })
   }
 
+  getListContent(){
+    var rows = [];
+    for(var i=0;i<50;i++){
+      rows.push(<GridTile cols={1}>
+                    <Paper zDepth={3}>
+                      <Result weatherInfo={this.state.weatherInfo}/>
+                    </Paper>
+                </GridTile>)
+    }
+    return rows;
+  }
+
   render() {
     return (
         <MuiThemeProvider muiTheme={muiTheme}>
@@ -53,29 +68,13 @@ class App extends Component {
               title="曾瑞略的样例工程"
               showMenuIconButton={false}
             />
+            <Search handleInput={this.handleInput.bind(this)}/>
             <GridList
-                cols={3}
-                cellHeight={500}
+                cols={1}
+                cellHeight={350}
                 style={{overflowY:'auto',margin:'0px'}}
                 >
-                <GridTile cols={1}>
-                    <Paper zDepth={3}>
-                      <Search handleInput={this.handleInput.bind(this)}/>
-                      <Result weatherInfo={this.state.weatherInfo}/>
-                    </Paper>
-                </GridTile>
-                <GridTile cols={1}>
-                    <Paper zDepth={3}>
-                      <Search handleInput={this.handleInput.bind(this)}/>
-                      <Result weatherInfo={this.state.weatherInfo}/>
-                    </Paper>
-                </GridTile>
-                <GridTile cols={1}>
-                    <Paper zDepth={3}>
-                      <Search handleInput={this.handleInput.bind(this)}/>
-                      <Result weatherInfo={this.state.weatherInfo}/>
-                    </Paper>
-                </GridTile>
+                {this.getListContent()}
             </GridList>
           </div>
         </MuiThemeProvider>

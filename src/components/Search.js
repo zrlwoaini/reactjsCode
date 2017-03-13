@@ -10,11 +10,14 @@ const style = {
 
 const styles = {
   root: {
+    fontSize: 12,
+    lineHeight: '12px',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
   },
   gridList: {
+    margin: '0px',
     overflowY: 'auto',
   },
 };
@@ -36,16 +39,17 @@ class Search extends Component {
                 cellHeight={80}
                 style={styles.gridList}
                 >
-                    <GridTile cols={3}>
+                    <GridTile cols={1}>
                         <TextField
                             style={{paddingLeft:'20px'}}
+                            fullWidth={true}
                             ref="city_name"
                             hintText="请输入城市名称"
                             floatingLabelText="城市名称，请使用中文"
                             onKeyPress={e=>e.key==='Enter'?this.props.handleInput(e.target.value):null}
                         />
                     </GridTile>
-                    <GridTile cols={2}>
+                    <GridTile cols={1}>
                         <RaisedButton label="查询" primary={true} style={style} onClick={this.queryClick.bind(this)} />
                     </GridTile>
                 </GridList>
