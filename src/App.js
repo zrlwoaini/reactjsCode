@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css'
-import 'material-design-lite/material.min.js'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
