@@ -17,10 +17,7 @@ import $ from 'jquery'
 import {lightBlue100, lightBlue500, lightBlue700} from 'material-ui/styles/colors';
  
 const paperStyle = {
-  minHeight: 600,
-  width: 460,
   margin: '20px auto',
-  textAlign: 'center',
 };
 
 const muiTheme = getMuiTheme({

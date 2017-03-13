@@ -11,8 +11,6 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: 460,
-    height: 460,
     overflowY: 'auto',
   },
 };
@@ -30,7 +28,6 @@ class Result extends Component {
             <div>
                     <GridList
                         cols={2}
-                        cellHeight={225}
                         padding={5}
                         style={styles.gridList}
                     >
