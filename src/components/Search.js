@@ -35,11 +35,11 @@ class Search extends Component {
         return (
             <div>
                <GridList
-                cols={5}
+                cols={3}
                 cellHeight={80}
                 style={styles.gridList}
                 >
-                    <GridTile cols={1}>
+                    <GridTile cols={2}>
                         <TextField
                             style={{paddingLeft:'20px'}}
                             fullWidth={true}
